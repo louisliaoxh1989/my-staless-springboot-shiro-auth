@@ -43,7 +43,7 @@ public class MyRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
         simpleAuthorizationInfo.addRole(user.getRole());
         Set<String> permission = new HashSet<>(Arrays.asList(user.getPermission().split(",")));
-        simpleAuthorizationInfo.addStringPermissions(permission);
+        simpleAuthorizationInfo.addStringPermissions(permission);//重要之处需要配成url
         return simpleAuthorizationInfo;
     }
 
