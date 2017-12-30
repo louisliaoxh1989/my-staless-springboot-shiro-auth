@@ -1,13 +1,13 @@
-# Shiro+JWT+Spring Boot Restful简易教程
-> 之前有一个写过一个老版本教程，如果需要查看请前往`old`分支。本次教程添加了注解支持，完善了JWT的机制，并且添加过期时间的校验等。
+## 重要类说明
 
-### 序言
+```
+JWTFilter : 客户端使用restful访问时，执行该类中的onAccessDenied 进行Subject.login,接着会调用MyRealm  doGetAuthenticationInfo获取header中的token进行认证，认证成功后会调用MyAccessFilter
 
-我也是半路出家的人，如果大家有什么好的意见或批评，请务必`issue`下。
+MyAccessFilter：会根据客户端访问的url，与MyRealm中doGetAuthorizationInfo设置的权限集对比来动态的判断是否有权限
+```
 
-项目地址：https://github.com/Smith-Cruise/Spring-Boot-Shiro 。
 
-如果想要体验下，从 [release](https://github.com/Smith-Cruise/Spring-Boot-Shiro/releases) 处下载运行`java -jar file_name.jar `即可。网址规则自行看教程后面。
+
 
 ### 准备工作
 
